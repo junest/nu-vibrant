@@ -160,7 +160,7 @@ a {
 }
 
 .btn.pink-btn {
-  background: #ff7b88;
+  background: #f4bbd3;
   border-color: #ff7b88;
   color: #fff;
 }
@@ -1541,7 +1541,7 @@ footer .social-icons {
   background-color: #b0abca;
 }
 .bold-head {
-  color: #ff999a;
+  color: #f4bbd4;
   font-weight: 500;
 }
 .pricing-padding {
@@ -1857,4 +1857,277 @@ img.dancer-siluet {
 }
 .portfolio-sec .portfolio-items .item:hover .portfolio-overlay .overlay-inner-content{
   opacity: 1;
+}
+
+
+/* ===================================
+   Get Started Model Popup
+====================================== */
+
+.quote-content{
+  text-align: center;
+  max-width: 900px;
+  padding: 50px 150px;
+  overflow: visible;
+  background-color: #B0ABCB;
+  border-radius: 25px;
+}
+
+.quote-content .contact-form .form-control{
+  border-radius: 0;
+  padding: 0;
+}
+
+.quote-content #quote_submit_btn{
+  margin-bottom: -120px;
+}
+
+/*CheckBox*/
+
+.quote-content .form-check{
+  padding: 50px 0 8px 0;
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+.checkbox-lable {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #fff;
+}
+
+.checkbox-lable input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px dotted #fafafa;
+  border-radius: 8px;
+}
+
+.checkbox-lable:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-lable input:checked ~ .checkmark {
+  background-color: #f4bbd4;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-lable input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-lable .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.quote-content .fancybox-close-small {
+  top: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background: #f4bbd4;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.quote-content .fancybox-close-small:after {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  margin-top: -5px;
+  font: initial;
+  font-size: 35px;
+  color: #fff;
+}
+
+.fancybox-close-small:focus:after{
+  outline: none;
+}
+
+.quote-content .fancybox-close-small:hover:after,
+.quote-content .fancybox-close-small:focus:after{
+  background-color: transparent;
+}
+
+.contact-form .form-control:focus {
+  border-color: #fff;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+/* ===================================
+     modal contact
+====================================== */
+#animatedModal input::placeholder, #animatedModal textarea::placeholder {
+  color: #fafafa; /* Change Color */
+}
+#animatedModal .contact-sec {
+  background-image: url("../images/contact-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#animatedModal .contact-sec .contact-details, #animatedModal .contact-sec .contact-form-box{
+  padding-top: 50px;
+}
+
+#animatedModal .contact-sec .contact-details .contact-heading{
+  color: #000000;
+  font-size: 40px;
+  font-family: 'oswald',sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+#animatedModal .contact-sec .contact-details .contact-address{
+  font-size: 16px;
+  color: #000000;
+  opacity: .8;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+#animatedModal .contact-sec .contact-details .contact-list{
+  padding-left: 0;
+}
+
+#animatedModal .contact-sec .contact-details .contact-list li{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  list-style: none;
+  color: #000000;
+  font-size: 16px;
+  opacity: .8;
+}
+
+#animatedModal .contact-sec .contact-details .contact-list li:nth-child(even){
+  margin-bottom: 20px;
+}
+
+#animatedModal .contact-sec .contact-details .contact-list li:last-child{
+  margin-bottom: 50px;
+}
+
+#animatedModal .contact-sec .contact-details .contact-s-media{
+  padding-left: 0;
+  margin-bottom: 0;
+  right: auto;
+  left: -10px;
+}
+
+#animatedModal .contact-sec .contact-details .contact-s-media li {
+  list-style: none;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+#animatedModal .contact-sec .contact-details .contact-s-media li:last-child {
+  margin-right: 0;
+}
+
+#animatedModal .contact-sec .contact-details .contact-s-media li a{
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 2px;
+  transition: .8s ease;
+}
+
+#animatedModal .contact-sec .contact-details .page-footer{
+  left: calc(50% - 125px);
+}
+
+#animatedModal .contact-sec{
+  padding-bottom: 120px;
+}
+
+#animatedModal .contact-form {
+  max-width: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#animatedModal .contact-form .form-control {
+  border: none;
+  border-bottom:1px solid #fafafa;
+  padding: 10px 0;
+  background: transparent;
+  font-weight: normal;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 32px;
+  color: #fafafa;
+  font-size: 14px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  -webkit-transition: border .9s ease;
+  -o-transition: border .9s ease;
+  transition: border .9s ease;
+}
+
+#animatedModal .contact-form .form-control:focus {
+  border-color: #fff;
+}
+
+#animatedModal .contact-form textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+#animatedModal .contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.hidden {
+  display: none;
 }
