@@ -628,11 +628,23 @@ a {
   background-image: linear-gradient(134deg,rgba(248, 215, 232, 1) 0%, rgba(243, 177, 205, 1) 100%);
   background-size: cover;
   height: auto;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
   padding-bottom: 8px;
   position: relative;
   border-bottom-left-radius: 30vw;
 }
+
+.banner {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.banner .text-col {
+  position: relative;
+  left: 10%;
+  padding-top: 0;
+}
+
 .banner .text-col ul{
   padding-left: 0;
 }
@@ -641,10 +653,10 @@ a {
   display: inline-block;
   color: #fff;
 }
-.banner .text-col{
+/* .banner .text-col{
   position: absolute;
   bottom: 12.5rem;
-}
+} */
 .banner .text-col .heading{
   font-size: 52px;
   padding-right: 5rem;
@@ -1268,12 +1280,12 @@ footer .social-icons {
      Media Queries
 ====================================== */
 @media (min-width: 1600px){
-.banner{
+/* .banner{
   padding-top: 6.5rem;
-}
-.banner .text-col{
+} */
+/* .banner .text-col{
   bottom:240px;
-}
+} */
 }
 @media (max-width: 1200px){
   /*Side Menu*/
@@ -1341,11 +1353,10 @@ footer .social-icons {
 /*Banner*/
 .banner{
   height: 100vh;
-  padding-top: 38rem;
+  /* padding-top: 38rem; */
 }
 .banner .text-col{
-  margin-bottom: 325px;
-  text-align: center;
+  left: 0;
 }
 .banner .text-col .heading{
   font-size: 50px;
@@ -1362,10 +1373,10 @@ footer .social-icons {
 .banner .media .media-body{
   margin-left: 0;
 }
-.banner .text-col {
+/* .banner .text-col {
   position: relative;
   bottom: 45.5rem;
-}
+} */
 /*About Section*/
 .about-section .row-2 .img-col{
   position: relative;
@@ -1454,11 +1465,11 @@ footer .social-icons {
 }
 
   /*Banner*/
-.banner{
+/* .banner{
   padding-top: 35rem;
-}
+} */
 .banner .text-col{
-  bottom: 36.5rem;
+  left: 0;
 }
 .banner .text-col .heading{
   font-size: 45px;
@@ -1502,12 +1513,12 @@ footer .social-icons {
 }
 @media (max-width: 370px){
   /*Banner*/
-.banner{
+/* .banner{
   padding-top: 30rem;
-}  
-.banner .text-col {
+}   */
+/* .banner .text-col {
     bottom: 33.5rem;
-}
+} */
 
 /*Portfolio Section*/
 .portfolio-section .portfolio-btn .btn.button{
