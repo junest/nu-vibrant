@@ -2224,8 +2224,8 @@ img.dancer-siluet {
   top: -6vh;
 }
 .forms-sign-signup .form.signup{
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: auto;
 }
 .forms-sign-signup.show-signup .form.signup{
   opacity: 1;

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load allauth i18n static %}
+{% block head_title %}
+    {% trans "Signup" %}
+{% endblock head_title %}
+{% block content %}
+    <!-- Banner Start -->
+    <section class="banner banner-price sign-signup-banner">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-6">            
+                    <div class="navbar-brand">
+                        <img src="{% static 'images/digital/logo-main-horizontal.png' %}">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="forms-sign-signup">
+                        <!-- Signup Form -->
+                        <div class="form signup">
+                            <div class="form-content">
+                                <header>Signup</header>
+                                {% if not SOCIALACCOUNT_ONLY %}
+                                {% url 'account_signup' as action_url %}
+                                {% element form form=form method="post" action=action_url tags="entrance,signup" %}
+                                    {% slot body %}
+                                        {% csrf_token %}
+                                        {% element fields form=form unlabeled=True %}
+                                        {% endelement %}
+                                        {{ redirect_field }}
+                                    {% endslot %}
+                                    {% slot actions %}
+                                        {% element button tags="prominent,signup" type="submit" %}
+                                            {% trans "Sign Up" %}
+                                        {% endelement %}
+                                    {% endslot %}
+                                {% endelement %}
+                                {% endif %}
+                                <div class="form-link">
+                                    <span>Already have an account? <a href="{{ login_url }}">Login</a></span>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Container End  -->
+    </section>
+{% endblock content %}

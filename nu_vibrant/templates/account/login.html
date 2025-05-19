@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load allauth account static %}
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+{% block content %}
+    <!-- Banner Start -->
+    <section class="banner banner-price sign-signup-banner">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-6">            
+                    <div class="navbar-brand">
+                        <img src="{% static 'images/digital/logo-main-horizontal.png' %}">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="forms-sign-signup">
+
+                        <div class="form login">
+                            <div class="form-content">
+                                <header>Login</header>
+                                {% if not SOCIALACCOUNT_ONLY %}
+                                    {% url 'account_login' as login_url %}
+                                    {% element form form=form method="post" action=login_url tags="entrance,login" %}
+                                        {% slot body %}
+                                            {% csrf_token %}
+                                            {% element fields form=form unlabeled=True %}
+                                            {% endelement %}
+                                            {{ redirect_field }}
+                                        {% endslot %}
+                                        {% slot actions %}
+                                            {% element button type="submit" tags="prominent,login" %}
+                                                {% trans "Sign In" %}
+                                            {% endelement %}
+                                        {% endslot %}
+                                    {% endelement %}
+                                {% endif %}
+                                <div class="form-link">
+                                    <span>Don't have an account? <a href="{% url 'account_signup' %}" >Signup</a></span>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Container End  -->
+    </section>
+{% endblock content %}
