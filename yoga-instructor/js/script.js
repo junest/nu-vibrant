@@ -232,3 +232,70 @@ $('.portfolio-items').owlCarousel({
         }
     }
 });
+
+
+/* =====================================
+    Sechdule Filter
+====================================== */
+
+// isotope
+$('.gallery').isotope({
+    // options
+    itemSelector: '.items'
+ });
+
+ var $gallery = $('.gallery').isotope({
+    // options
+ });
+
+ // filter items on button click
+ $('.filtering').on('click', 'span', function () {
+
+    var filterValue = $(this).attr('data-filter');
+
+    $gallery.isotope({filter: filterValue});
+
+ });
+
+ $('.filtering').on('click', 'span', function () {
+
+    $(this).addClass('active').siblings().removeClass('active');
+
+ });
+
+ setTimeout(function (){
+    $('.filtering .active').click();
+ }, 1500);
+
+
+/* =====================================
+    signup & login form
+====================================== */
+
+ const forms = document.querySelector(".forms-sign-signup"),
+      pwShowHide = document.querySelectorAll(".eye-icon"),
+      links = document.querySelectorAll(".link");
+
+pwShowHide.forEach(eyeIcon => {
+    eyeIcon.addEventListener("click", () => {
+        let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+        
+        pwFields.forEach(password => {
+            if(password.type === "password"){
+                password.type = "text";
+                eyeIcon.classList.replace("bx-hide", "bx-show");
+                return;
+            }
+            password.type = "password";
+            eyeIcon.classList.replace("bx-show", "bx-hide");
+        })
+        
+    })
+})      
+
+links.forEach(link => {
+    link.addEventListener("click", e => {
+       e.preventDefault(); //preventing form submit
+       forms.classList.toggle("show-signup");
+    })
+})

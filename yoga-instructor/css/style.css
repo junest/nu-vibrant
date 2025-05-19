@@ -618,6 +618,9 @@ a {
   color: #333;
 }
 
+.cbp-item.even {
+  margin-top: auto !important;
+}
 
 /* ===================================
     Banner 
@@ -1614,7 +1617,7 @@ footer .social-icons {
   transition: 1s;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   background: #F0D5BA;
-  border-radius: 2vw;
+  border-radius: 14px;
 }
 .pricing-item.new {
   max-width: 100%;
@@ -2010,6 +2013,67 @@ img.dancer-siluet {
   resize: none;
 }
 
+.gallery{
+  width: 100% !important;
+  height: 600px;
+}
+
+
+.title h2 {color: #0d1619; 
+  font-family: 'montserrat', sans-serif;}
+.portfolio-three .filtering .active {
+  color: #ff6666;
+}
+.filtering span {margin: 0px 10px; font-size: 16px;
+  color: #0d1619; cursor: pointer;
+  font-family: 'montserrat', sans-serif;}
+.item-img {background-color: #7e99b6; border-radius: 10px; padding: 30px 0px;}
+.sechdual-timing {
+  padding: 10px 30px;
+  background-color: #a5d5d5;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 14px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.sechdual-category {
+  color: #ffffff;
+}
+.filtering span.active {color: #a5d5d5;}
+
+/* profile section */
+
+.profile-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-family: 'montserrat', sans-serif;
+}
+.profile-section .card {
+  border-radius: 14px;
+  box-shadow: 0px 0px 5px #ededed;
+  border: none;
+}
+.profile-section .card .card-header {
+  background-color: rgb(165 213 213);
+  border-radius: 14px 14px 0px 0px;
+  color: #fff
+}
+.profile-section .img-account-profile {
+  max-width: 8rem;
+}
+.dollar-profile {
+  transform: none;
+  top: -20px;
+  position: relative;
+}
+
+.banner-half {
+  height: 45vh !important;
+}
+
 /* ===================================
      modal contact
 ====================================== */
@@ -2141,4 +2205,166 @@ img.dancer-siluet {
 }
 .hidden {
   display: none;
+}
+
+/* signin signup form */
+.forms-sign-signup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+} 
+.forms-sign-signup .form{
+  position: absolute;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  background: #FFF;
+  top: -6vh;
+}
+.forms-sign-signup .form.signup{
+  opacity: 0;
+  pointer-events: none;
+}
+.forms-sign-signup.show-signup .form.signup{
+  opacity: 1;
+  pointer-events: auto;
+}
+.forms-sign-signup.show-signup .form.login{
+  opacity: 0;
+  pointer-events: none;
+}
+.forms-sign-signup header{
+  font-size: 28px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+  font-family: 'montserrat', sans-serif;
+}
+.forms-sign-signup form{
+  margin-top: 30px;
+}
+.forms-sign-signup .form .field{
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+.forms-sign-signup .field input,
+.forms-sign-signup .field button{
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+.forms-sign-signup .field input{
+  outline: none;
+  padding: 0 15px;
+  border: 1px solid#CACACA;
+}
+.forms-sign-signup .field input:focus{
+  border-bottom-width: 2px;
+}
+.forms-sign-signup .eye-icon{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px;
+}
+.forms-sign-signup .field button{
+  color: #fff;
+  background-color: #f3b8d1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.forms-sign-signup .field button:hover{
+  background-color: #ea9dbd;
+}
+.forms-sign-signup .form-link{
+  text-align: center;
+  margin-top: 10px;
+}
+.forms-sign-signup .form-link span,
+.forms-sign-signup .form-link a{
+  font-size: 14px;
+  font-weight: 400;
+  color: #232836;
+}
+.forms-sign-signup .form a{
+  color: #0171d3;
+  text-decoration: none;
+}
+.forms-sign-signup .form-content a:hover{
+  text-decoration: underline;
+}
+.forms-sign-signup .line{
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 36px 0;
+  background-color: #d4d4d4;
+}
+.forms-sign-signup .line::before{
+  content: 'Or';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF;
+  color: #8b8b8b;
+  padding: 0 15px;
+}
+.forms-sign-signup .media-options a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sign-signup-banner .navbar-brand{
+  max-width: 80%;
+} 
+
+@media screen and (max-width: 769px) {
+  .forms-sign-signup .form{
+      top: -22vh;
+  }
+  .sign-signup-banner .navbar-brand{
+    margin: 0 auto;
+    top: -25vh;
+    position: relative;
+    max-width: 320px;
+    display: flex;
+  }
+}
+@media screen and (max-width: 428px) {
+  .forms-sign-signup .form{
+      top: -22vh;
+  }
+  .sign-signup-banner .navbar-brand{
+    margin: 0 auto;
+    top: -25vh;
+    position: relative;
+    max-width: 280px;
+    display: flex;
+  }
+}
+@media screen and (max-width: 390px) {
+  .forms-sign-signup .form{
+      padding: 20px 10px;
+      top: -22vh;
+  }
+  .sign-signup-banner .navbar-brand{
+    margin: 0 auto;
+    top: -25vh;
+    position: relative;
+    max-width: 280px;
+    display: flex;
+  }
 }
