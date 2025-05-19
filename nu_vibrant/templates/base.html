@@ -7,27 +7,46 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
       {% block title %}
-      nu vibrant
+      vibrant
     {% endblock title %}
   </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-        content="Behold My Awesome Project!" />
-  <meta name="author"
-        content="Manta Nugraha" />
-  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Author -->
+  <meta name="author" content="Vibrant Pilates">
+  <!-- description -->
+  <meta name="description" content="Vibrant pilates">
+  <!-- keywords -->
+  <meta name="keywords" content="pilates, yoga, health, sport">
+  <!-- Page Title -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %}">
+  <link href="{% static 'images/favicons/favicon.ico' %}" rel="icon">
+
   {% block css %}
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-          integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
+
 <!-- Your stuff: Third-party CSS libraries go here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <!-- This file stores project-specific CSS -->
 
 
 {% compress css %}
+  <!-- Bundle -->
+  <link rel="stylesheet" href="{% static 'vendor/css/bundle.min.css' %}">
+  <!-- Plugin Css -->
+  <link rel="stylesheet" href="{% static 'vendor/css/revolution-settings.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/css/jquery.fancybox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/css/cubeportfolio.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/css/wow.css' %}">
+  <!-- Slider Settings -->
+  <link rel="stylesheet" href="{% static 'vendor/css/LineIcons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/yoga-instructor/settings.css' %}">
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="{% static 'css/yoga-instructor/style.css' %}">
   <link href="{% static 'css/project.css' %}" rel="stylesheet" />
 {% endcompress %}
 
@@ -40,11 +59,6 @@
 
 
 <!-- Bootstrap JS -->
-<script defer
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
-        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
 <!-- Your stuff: Third-party javascript libraries go here -->
 
 
@@ -52,62 +66,126 @@
 
 
 {% compress js %}
+   <!-- JavaScript -->
+   <script src="{% static 'vendor/js/bundle.min.js' %}"></script>
+   <!-- Plugin Js -->
+   <script src="{% static 'vendor/js/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'vendor/js/jquery.cubeportfolio.min.js' %}"></script>
+   <script src="{% static 'vendor/js/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'vendor/js/wow.min.js' %}"></script>
+   <!-- Plugin Js -->   
+   <script src="{% static 'vendor/js/jquery.appear.js' %}"></script>
+   <script src="{% static 'vendor/js/jquery.fancybox.min.js' %}"></script>
+   <script src="{% static 'vendor/js/parallaxie.min.js' %}"></script>
+   <!-- custom script -->
+   <script src="{% static 'vendor/js/contact_us.js' %}"></script>
+   <script src="{% static 'js/yoga-instructor/script.js' %}"></script>
+   <!-- custom script-->
   <script defer src="{% static 'js/project.js' %}"></script>
 {% endcompress %}
 
 
 {% endblock javascript %}
 </head>
-<body class="{% block bodyclass %}{% endblock bodyclass %}">
-  {% block body %}
-  <div class="mb-1">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler navbar-toggler-right"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">nu vibrant</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link"
-                   href="{% url 'users:detail' request.user.pk %}">{% translate "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
-              </li>
-            {% else %}
-              {% if ACCOUNT_ALLOW_REGISTRATION %}
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
-                </li>
-              {% endif %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
+<body data-offset="90" data-spy="scroll" data-target=".navbar" class="{% block bodyclass %}{% endblock bodyclass %}">
+  <!--Loader-->
+  <div class="loader">
+    <div class="loader-spinner"></div>
   </div>
-  <div class="container">
+  <!-- Loader -->
+
+  <!-- Header Start -->
+  <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-top-default">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/digital/logo-main-horizontal.png' %}"></a>
+          <!--Nav Links-->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item  active">
+                    <a class="nav-link scroll" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  scroll" href="{% url 'home' %}#about">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll" href="{% url 'home' %}#portfolio-sec">Studio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'price-list' %}">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'booking-list' %}">Book Class</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll" href="#contact">Contact</a>
+                </li>
+              </ul>
+          </div>
+          <a href="javascript:void(0)" class="sidemenu_btn link" id="sidemenu_toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          </a>
+        </div>
+        <!-- Container End --> 
+        <!--Side Menu Button-->
+    </nav>
+    <!-- Navbar End -->
+    <!-- Side Menu Start -->
+    <div class="side-menu hidden">
+        <div class="inner-wrapper">
+          <div class="sidemenu-image">
+              <a class="scroll" href="{% url 'home' %}"> 
+              <img class="navbar-brand-side" src="{% static 'images/digital/logo-main-horizontal.png' %}" alt="image">
+              </a>
+          </div>
+          <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
+          <nav class="side-nav w-100">
+              <ul class="navbar-nav">
+                <li class="nav-item  active">
+                    <a class="nav-link scroll" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll" href="{% url 'home' %}#about">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll" href="{% url 'home' %}#portfolio-sec">Studio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'price-list' %}">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'booking-list' %}">Book Class</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll" href="#contact">Contact</a>
+                </li>
+              </ul>
+          </nav>
+          <div class="side-menu-footer">
+              <div class="social-icons">
+                <ul>
+                    <li>
+                      <a href="#" class="hover"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li><a href="#" class="hover"><i class="fab fa-x-twitter"></i></a></li>
+                    <li><a href="#" class="hover"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#" class="hover"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+              </div>
+              <p class=" text copywrite text-left">&copy; 2025 Vibrant. <br>Begin your workout journey today.</p>
+          </div>
+        </div>
+    </div>
+    <a id="close_side_menu" href="javascript:void(0);"></a>
+    <!-- Side Menu End -->
+  </header>
+  <!-- Header End -->
+
+  {% block body %}
+
     {% if messages %}
       {% for message in messages %}
         <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
@@ -124,11 +202,175 @@
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
     {% endblock main %}
-
-  </div>
   {% endblock body %}
   <!-- /container -->
+
+  <!-- Address Section Start-->
+  <section class="address-section" id="contact">
+    <div class="siluet-img2"><img src="{% static 'images/digital/siluet-edit4.png' %}" alt="img"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInLeft" data-wow-delay="400ms">
+            <div class="mapouter">
+              <div class="gmap_canvas" id="google-map">
+                  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.9923937717144!2d106.79312438564514!3d-6.264729577541477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f19930117ebb%3A0x7dc3f08eb368bc3f!2sJl.%20RS.%20Fatmawati%20Raya%20No.Kav.71%2C%20RT.2%2FRW.5%2C%20Cipete%20Utara%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012410!5e0!3m2!1sen!2sid!4v1744789100838!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInRight" data-wow-delay="400ms">
+            <div class="contact-info">
+              <h2 class="heading mb-1">Vibrant</h2>
+              <p class="text">Jl. RS Fatmawati Raya kav. 71. No. A16. RT.2/RW.5 Cipete Utara, Kec. Kby. Baru, Kota Jakarta Selatan, DKI Jakarta</p>
+              <p class="text mb-1">Mobile : +62 811 9271 910 </p>
+              <p class="text">Email : admin@website.com </p>
+
+              <h2 class="heading heading-custom mb-2">Open Hour</h2>
+              <div class="row">
+                  <div class="col-lg-6">
+                      <p class="mb-1 text">Monday to Friday</p>
+                      <p class="text">8 AM - 9 PM</p>
+                  </div>
+                  <div class="col-lg-6">
+                      <p class="mb-1 text">Saturday to Sunday</p>
+                      <p class="text">8 AM - 5 PM</p>
+                  </div>
+              </div>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container End -->
+  </section>
+  <!-- Address Section End -->
+
+  <!-- Contact Section Start -->
+  <section class="contact-section" >
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-md-12 col-sm-12 logo-section wow fadeInLeft" data-wow-delay="400ms">
+            <img src="{% static 'images/digital/logo-main-vertical.png' %}" alt="logo">   
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 form-section wow fadeInRight" data-wow-delay="400ms">
+          <form id="contact-form-data" class="contact-form wow fadeInUp" data-wow-delay="400ms" >
+            <div class="row">
+                <div class="col-12" id="result"></div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                  <div class="form-group">
+                      <input class="form-control " type="text"  id="quote_name" placeholder="Name" required=""  name="userName">
+                  </div>
+                  <div class="form-group">
+                      <input class="form-control" type="text" id="quote_contact" name="userPhone" placeholder="Contact No" required="" >
+                  </div>
+                  <div class="form-group">
+                      <input class="form-control" type="email" id="quote_email" placeholder="Email" required=""  name="userEmail">
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-0 col-sm-0"></div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div class="form-group">
+                      <textarea class="form-control" id="userMessage"
+                        name="userMessage"  placeholder="Type Your Message Here"></textarea>
+                  </div>
+                  <div class="form-group">
+                      <a class="btn button btn-rounded white-btn btn-hvr-black contact_btn" href="javascript:void(0);">
+                      Let's Get in Touch
+                      </a>
+                  </div>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Container End -->
+  </section>
+  <!-- Contact Section End-->
+
+  <!-- Footer Start -->
+  <footer class="no-gutters">
+      <div class="container">
+          <div class="social-icons">
+              <ul>
+                  <li><a class="hovr wow fadeInUp"  data-wow-delay="400ms" href="#.">
+                  <i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li><a class="hovr wow fadeInDown" data-wow-delay="400ms" href="#.">
+                  <i class="fab fa-x-twitter"></i><span></span></a>
+                  </li>
+                  <li><a class="hovr wow fadeInUp" data-wow-delay="400ms" href="#.">
+                  <i class="fab fa-google-plus-g"></i><span></span></a>
+                  </li>
+                  <li><a class="hovr wow fadeInDown" data-wow-delay="400ms" href="#.">
+                  <i class="fab fa-linkedin-in"></i><span></span></a>
+                  </li>
+                  <li><a class="hovr wow fadeInUp" data-wow-delay="400ms" href="#.">
+                  <i class="fab fa-instagram"></i><span></span></a>
+                  </li>
+                  <li><a class="hovr wow fadeInDown" data-wow-delay="400ms" href="#.">
+                  <i class="far fa-envelope"></i><span></span></a>
+                  </li>
+              </ul>
+          </div>
+          <p class="text text-center wow fadeInUp" data-wow-delay="400ms">&copy; Vibrant</p>
+      </div>
+  </footer>
+  <!-- Footer End -->
+
+  <div class="floating_btn-wapp">
+      <a target="_blank" href="https://wa.me/628119271910?text=Hi%20Vibrant%20i%20want%20to%20inquire%20for%20register%20member">
+      <div class="contact_icon-wapp">
+          <i class="fa fa-whatsapp my-float-wapp"></i>
+      </div>
+      </a>
+  </div>
+
   {% block modal %}
+  <!--Get Started Model Popup-->
+  <div class="quote-content hidden animated-modal" id="animatedModal">
+    <!--Heading-->
+    <div class="pb-md-5 p-0 text-center">
+        <h2 class="main-font font-weight-300 text-white mt-2">Register and Join</h2>
+    </div>
+    <!--Contact Form-->
+    <form class="contact-form" id="modal-contact-form-data">
+        <div class="row">
+          <!--Result-->
+          <div class="col-12" id="quote_result"></div>
+
+          <!--Left Column-->
+          <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control" id="quote_name" name="quoteName" placeholder="Name" required="" type="text">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="quote_contact" name="userPhone" placeholder="Phone (whatsapp)" required="" type="tel">
+                </div>
+          </div>
+
+          <!--Right Column-->
+          <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control" id="quote_email" name="userEmail" placeholder="Email" required="" type="email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="quote_address" name="userAddress" placeholder="Address" required="" type="text">
+                </div>
+          </div>
+
+          <!--Button-->
+          <div class="col-md-12">
+                <div class="form-check">
+                    <label class="checkbox-lable font-weight-200 font-16">Contact by phone is preferred
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                </div>
+                <a href="javascript:void(0)" class="btn button btn-rounded pink-btn btn-hvr-purple" id="quote_submit_btn">Submit Now</a>
+          </div>
+        </div>
+    </form>
+  </div>
   {% endblock modal %}
   {% block inline_javascript %}
     {% comment %}
@@ -142,4 +384,6 @@
     {% endcomment %}
   {% endblock inline_javascript %}
 </body>
+
+
 </html>
