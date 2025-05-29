@@ -1,0 +1,17 @@
+{% load static %}
+{% block content %}
+{% for session in queryset %}
+    <div class="col-md-3 items {{ day }} mb-4">
+        <div class="item-img">
+            <div class="sechdual-category mt-3">
+                <h5 class="trainer-name mt-2">{{ session.start_date|date:"h:iA" }}-{{ session.end_date|date:"h:iA" }}</h5>
+                <p>{{ session.description }}</p>
+                <a href="{% url 'class_session:book' session.id %}" class="btn button btn-rounded pink-btn btn-hvr-purple">Book now</a>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <div class="col-12 text-center">
+        <p>No sessions scheduled for {{day|capfirst}}</p>
+    </div>
+{% endfor %}

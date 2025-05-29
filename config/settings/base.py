@@ -83,6 +83,9 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "nu_vibrant.users",
+    "nu_vibrant.class_session",
+    "nu_vibrant.subscription",
+    "nu_vibrant.event",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

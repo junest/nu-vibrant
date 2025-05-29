@@ -10,32 +10,137 @@
   
 {% endblock title %}
 {% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2>
-        
-        
-          {{ object.name }}
-        
-      </h2>
+
+  <!-- Banner Start -->
+  <section class="banner banner-price banner-half">
+    <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-6 col-md-12 col-sm-12 text-section wow fadeInLeft" data-wow-delay="1500ms">
+              <div class="text-col">
+                <h2 class="heading"><span class="bold-head2">Profile</span></h2>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+        </div>
     </div>
-  </div>
-  {% if object == request.user %}
-    <!-- Action buttons -->
-    <div class="row">
-      <div class="col-sm-12">
-        <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
-        <a class="btn btn-primary"
-           href="{% url 'account_email' %}"
-           role="button">E-Mail</a>
-        <a class="btn btn-primary"
-           href="{% url 'mfa_index' %}"
-           role="button">MFA</a>
-        <!-- Your Stuff: Custom user template urls -->
+    <!-- Container End  -->
+  </section>
+     
+     
+  <section class="profile-section">
+    <div class="container px-4 mt-4">
+      <div class="row">
+          <div class="col-xl-4">
+              <!-- Profile picture card-->
+              <div class="card mb-4 mb-xl-0">
+                  <div class="card-body text-center">
+                      <!-- Profile picture image-->
+                      <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                      <!-- Profile picture help block-->
+                      <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                      <!-- Profile picture upload button-->
+                      <a class="btn button btn-rounded pink-btn btn-hvr-purple">Upload new image</a>
+                  </div>
+              </div>
+
+              <!-- Profile picture card-->
+              {% if object == request.user %}
+              <div class="card mb-4 mb-xl-0">
+                <div class="card-body">
+                  <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
+                  <a class="btn btn-primary"
+                     href="{% url 'account_email' %}"
+                     role="button">E-Mail</a>
+                  <a class="btn btn-primary"
+                     href="{% url 'mfa_index' %}"
+                     role="button">MFA</a>
+                  <!-- Your Stuff: Custom user template urls -->
+                </div>
+              
+              </div>
+              {% endif %}
+
+          </div>
+          <div class="col-xl-8">
+              <!-- Account details card-->
+              <div class="card mb-4">
+                  <div class="card-header">Account Details</div>
+                  <div class="card-body">
+                          <!-- Form Row-->
+                    <div class="mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-12">
+                              <label class="small mb-1">Name</label>
+                              <h4>valerie luna</h4>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-12">
+                              <label class="small mb-1">Email</label>
+                              <h4>valerie@gmail.com</h4>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-12">
+                              <label class="small mb-1">Phone Number</label>
+                              <h4>08552626266</h4>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="card mb-4">
+                  <div class="card-header">My Package</div>
+                  <div class="card-body">
+                          <!-- Form Row-->
+                    <div class="mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-12">
+                              <label class="small mb-1">Active</label>
+                              
+                              <div class="pricing-item hvr-bg-pink p-3">
+                                <div class="price">
+                                    <h2 class="position-relative"><span class="dollar dollar-profile">IDR</span>550<span class="price-val">k</span></h2>
+                                </div>
+                                <div class="price-description">
+                                    <p>1 Session</p>
+                                    <p>One on One Session</p>
+                                    <p>Mon - Sun</p>
+                                    <p>50 min class</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-12">
+                              <label class="small mb-1">Expired</label>
+                              <h4> - </h4>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="card mb-4">
+                  <div class="card-header">My Schedule</div>
+                  <div class="card-body">
+                          <!-- Form Row-->
+                    <div class="mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-12">
+                              <label class="small mb-1">Upcoming</label>
+                              <h4>Thursday, 20-14-2025 on 9 AM to 10 AM</h4>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
-    <!-- End Action buttons -->
-  {% endif %}
+  </section>
+  <!-- Banner End -->
+
+
 </div>
 {% endblock content %}

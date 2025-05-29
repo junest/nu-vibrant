@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Banner Start -->
+<section class="banner banner-price banner-half">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-6 col-md-12 col-sm-12 text-section wow fadeInLeft" data-wow-delay="1500ms">
+                <div class="text-col">
+                <h2 class="heading">My <span class="bold-head2">Class Bookings</span></h2>
+                <a href="{% url 'class_session:list' %}" class="btn button btn-rounded pink-btn btn-hvr-purple">Browse Classes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+        </div>
+    </div>
+<!-- Container End  -->
+</section>
+
+<section class="price-packs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title text-center pb-5">
+                    <h2 class="heading heading-custom">My <span class="bold-head">Bookings</span></h2>
+                    <!-- filter links -->
+                    <div class="filtering col-sm-12 text-center pt-2">
+                    <span data-filter=".all" class="active">ALL</span>
+                    <span data-filter=".verified">VERIFIED</span>
+                    <span data-filter=".unverified">PENDING</span>
+                    <span data-filter=".cancelled">CANCELLED</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        
+            <div class="clearfix"></div>
+            <!-- gallery -->
+            <div class="gallery text-center">
+                <!-- all bookings -->
+                <div class="row gallery-content">
+                    {% if bookings %}
+                        {% for booking in bookings %}
+                        <!-- gallery item -->
+                        <div class="col-md-3 items all {{ booking.status }} mb-4">
+                            <div class="item-img">
+                                <div class="sechdual-category mt-3">
+                                    <h5 class="trainer-name mt-2">{{ booking.class_session.start_date|date:"h:iA" }}-{{ booking.class_session.end_date|date:"h:iA" }}</h5>
+                                    <p>{{ booking.class_session.name }}</p>
+                                    <p>{{ booking.class_session.start_date|date:"l, F j" }}</p>
+                                    <p>
+                                        {% if booking.status == 'verified' %}
+                                            <span class="badge bg-success">Verified</span>
+                                        {% elif booking.status == 'unverified' %}
+                                            <span class="badge bg-warning">Pending</span>
+                                        {% elif booking.status == 'cancelled' %}
+                                            <span class="badge bg-danger">Cancelled</span>
+                                        {% endif %}
+                                    </p>
+                                    <a href="{% url 'class_session:detail' booking.class_session.id %}" class="btn button btn-rounded pink-btn btn-hvr-purple">View Class</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-12 text-center">
+                            <p>You don't have any class bookings yet.</p>
+                            <a href="{% url 'class_session:list' %}" class="btn button btn-rounded pink-btn btn-hvr-purple">Browse Classes</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="clear-fix"></div>
+        </div>
+    </div>
+</section>
+     <!-- Banner End -->
+{% endblock content %}

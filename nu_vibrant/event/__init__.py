@@ -1,0 +1,1 @@
+default_app_config = 'nu_vibrant.event.apps.EventConfig'

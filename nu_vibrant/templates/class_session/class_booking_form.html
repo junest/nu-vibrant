@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Banner Start -->
+<section class="banner banner-price banner-half">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-6 col-md-12 col-sm-12 text-section wow fadeInLeft" data-wow-delay="1500ms">
+                <div class="text-col">
+                <h2 class="heading">Book <span class="bold-head2">Class Session</span></h2>
+                <a href="{% url 'class_session:list' %}" class="btn button btn-rounded pink-btn btn-hvr-purple">Back to Classes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+        </div>
+    </div>
+<!-- Container End  -->
+</section>
+
+<section class="price-packs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title text-center pb-5">
+                    <h2 class="heading heading-custom">{{ class_session.name }}</h2>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        
+            <div class="col-md-8 offset-md-2">
+                <div class="item-img">
+                    <div class="sechdual-category mt-3">
+                        <h5 class="trainer-name mt-2">{{ class_session.start_date|date:"h:iA" }} - {{ class_session.end_date|date:"h:iA" }}</h5>
+                        <p><strong>Instructor:</strong> {{ class_session.instructor }}</p>
+                        <p><strong>Date:</strong> {{ class_session.start_date|date:"l, F j, Y" }}</p>
+                        
+                        {% if class_session.reserved_capacity > 0 %}
+                          <form method="post" class="mt-4">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="alert alert-info">
+                              By booking this class, you confirm that you will attend the session.
+                            </div>
+                            <button type="submit" class="btn button btn-rounded pink-btn btn-hvr-purple">Confirm Booking</button>
+                            <a href="{% url 'class_session:list' %}" class="btn button btn-rounded btn-outline-secondary">Cancel</a>
+                          </form>
+                        {% else %}
+                          <div class="alert alert-warning mt-4">
+                            This class is at full capacity. Please select another class.
+                          </div>
+                          <a href="{% url 'class_session:list' %}" class="btn button btn-rounded pink-btn btn-hvr-purple">Back to Classes</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear-fix"></div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+{% endblock content %}
